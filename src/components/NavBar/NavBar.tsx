@@ -11,7 +11,7 @@ const NavBar = () => {
           <Toolbar sx={{justifyContent: "space-between"}}>
             <Typography
               color="inherit"
-              to="/admin"
+              to="/"
               variant="h5"
               component={NavLink}
               sx={{ textDecoration: "none", fontSize: "18px" }}
