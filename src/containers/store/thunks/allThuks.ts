@@ -1,7 +1,6 @@
 import { createAsyncThunk,  } from '@reduxjs/toolkit';
-import { IDish, IDishAPI, IDishForm } from '../../../types';
+import { IDish, IDishAPI, IDishForm, IOrderFromCustomer } from '../../../types';
 import axiosAPI from '../../../axiosAPI.ts';
-
 
 export const fetchPostDish = createAsyncThunk("postDish/fetchPostDish", async (form: IDishForm) => {
   await axiosAPI.post("dishes.json", {...form});
@@ -32,6 +31,10 @@ export const fetchPutDish = createAsyncThunk<void, IDish>("putDish/fetchPutDish"
 
 export const fetchDeleteDish = createAsyncThunk<void, string>("deleteDish/fetchDeleteDish", async (dishId) => {
   await axiosAPI.delete(`dishes/${dishId}.json`);
+});
+
+export const fetchPostOrder = createAsyncThunk("postOrder/fetchPostOrder", async (order:IOrderFromCustomer) => {
+  await axiosAPI.post("orders.json", {...order});
 });
 
 

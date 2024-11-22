@@ -1,8 +1,12 @@
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 
 const NavBar = () => {
+
+  const location = useLocation();
+  console.log(location.pathname);
+
 
   return (
     <>
@@ -16,15 +20,20 @@ const NavBar = () => {
               component={NavLink}
               sx={{ textDecoration: "none", fontSize: "18px" }}
             >
-              Turtle Pizza Admin
+              {location.pathname === "/" ? "Turtle Pizza" : "Turtle Pizza Admin"}
             </Typography>
             <Box>
-              <Button sx={{}} color="inherit" to="/admin/dishes" component={NavLink}>
-                Dishes
-              </Button>
-              <Button color="inherit" to="/admin/orders" component={NavLink}>
-                Orders
-              </Button>
+              {location.pathname === "/" ? null : (
+                <>
+                  <Button sx={{}} color="inherit" to="/admin/dishes" component={NavLink}>
+                    Dishes
+                  </Button>
+                  <Button color="inherit" to="/admin/orders" component={NavLink}>
+                    Orders
+                  </Button>
+                </>
+              )}
+
             </Box>
           </Toolbar>
         </AppBar>

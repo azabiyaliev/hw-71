@@ -9,7 +9,7 @@ import { fetchDish, fetchPostDish, fetchPutDish } from '../../containers/store/t
 
 const initialForm = {
   image: "",
-  price: "",
+  price: 0,
   title: "",
 };
 
@@ -40,6 +40,8 @@ const AddNewDish = () => {
         [name]: value,
       }));
   };
+
+
 
   const submitForm = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
