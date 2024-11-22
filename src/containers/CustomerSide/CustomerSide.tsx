@@ -11,7 +11,7 @@ const CustomerSide = () => {
   const dispatch = useAppDispatch();
   const dishShow: IDish[] = Object.values(useAppSelector(dishList));
   const totals: IDishAmount[] = Object.values(useAppSelector(totalPrice));
-  const orders: IOrderFromCustomer = Object.values(useAppSelector(ordersList));
+  const orders: IOrderFromCustomer = useAppSelector(ordersList);
   console.log(orders);
   console.log(totals);
 
@@ -44,6 +44,7 @@ const CustomerSide = () => {
   const disturb: number = 150;
 
   const sendOrder = async () => {
+
     try {
       await dispatch(fetchPostOrder({...orders}));
     } catch (error) {

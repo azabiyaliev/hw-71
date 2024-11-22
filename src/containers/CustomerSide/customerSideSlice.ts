@@ -4,18 +4,18 @@ import { RootState } from '../../app/store.ts';
 import { fetchPostOrder } from '../store/thunks/allThuks.ts';
 
 interface stateFromCustomer {
-  object: IOrderFromCustomer;
+  order: IOrderFromCustomer;
   isFetching: boolean;
   error: boolean;
 }
 
 const initialState: stateFromCustomer = {
-  object: [],
+  order: {},
   isFetching: false,
   error: false,
 };
 
-export const ordersList = (state: RootState) => state.orders.object;
+export const ordersList = (state: RootState) => state.orders.order;
 
 export const ordersSlice = createSlice({
   name: "orders",

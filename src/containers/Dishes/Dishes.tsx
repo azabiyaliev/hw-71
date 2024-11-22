@@ -10,6 +10,7 @@ const Dishes = () => {
 
   const dispatch = useAppDispatch();
   const dishShow: IDish[] = Object.values(useAppSelector(dishList));
+  console.log(dishShow);
 
   useEffect(() => {
     dispatch(fetchDishes());

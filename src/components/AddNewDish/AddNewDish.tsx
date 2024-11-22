@@ -42,7 +42,6 @@ const AddNewDish = () => {
   };
 
 
-
   const submitForm = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
